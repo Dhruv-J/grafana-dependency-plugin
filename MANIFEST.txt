@@ -12,10 +12,9 @@ Hash: SHA512
   ],
   "plugin": "theia-grafana-dependency-plugin",
   "version": "1.0.0",
-  "time": 1675365043820,
+  "time": 1675377473895,
   "keyId": "7e4d0c6a708866e7",
   "files": {
-    ".DS_Store": "98ff29279dd57b0400dbfbe2bed4b6abf33aff2df6cf9b438b3254187734facd",
     "CHANGELOG.md": "2420b5825e92056a8b381bba5746dd02c107cb080dba3b46203a2b3c71b9d49e",
     "module.js.LICENSE.txt": "021531b700103eb222e461de4b4844890d7dd3bbfbd298af82e2f68f8ed9f045",
     "module.js.map": "2b7bb9cb5f81cfed82eff30d67a07f651222409fc3542379fb3bdb77ce74011e",
@@ -28,10 +27,10 @@ Hash: SHA512
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrkEARMKAAYFAmPcCrQAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm5xJLAgkBA03s9ZiNA5SZBANHjOD20alpDdyeG69zpV8JzFs+bIBjwI5k
-rzF9+cerYzZIZYCtCYnsIMfZNohsHmwxvf9L98YCCQFtILlZ9RHvlCzETs7S
-EH6hjzL3Yq6gflNPiiedXOMp9fZKyDKiL3Al0ZEF/eoK5VUjvrzGL/zCk3Zw
-F2Yzkt5EwQ==
-=JI2X
+wrkEARMKAAYFAmPcO0IAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm51bMAgkBBK4xSoFJao8/momRdrcmL1rZrzbOgFcXEIygGQHtL32oHpEU
+FdVTpYVnfNVZLYsln1VJdBfSQ/JIJCp9orJQNnICCQF2/Bew22sZCJxjwqvh
+CA7CbHEXPgTFSyKtRZhTGUAQYLisOND1+mNHRWlVcDoxV380dvfMe7xG2dUQ
+w4fnvFWnSg==
+=1912
 -----END PGP SIGNATURE-----
