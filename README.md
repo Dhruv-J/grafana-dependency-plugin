@@ -1,8 +1,8 @@
-# Grafana Service Dependency Graph Plugin
+# Grafana Dependency Plugin
 
-## What is Grafana Service Dependency Graph Plugin?
+## What is Grafana Dependency Plugin?
 
-Grafana Service Dependency Graph Plugin allows users to visualize how Pods send
+Grafana Service Dependency Plugin allows users to visualize how Pods send
 and receive traffic to and from other Pods and Services. To help visualize the
 flows, the plugin groups Pods by Pod labels and shows them 'inside' the Node
 they are a part of.
@@ -14,14 +14,17 @@ worker_pod_1
 worker_pod_2
 end;
 ```
+
 A line pointing from source to destination is also shown, with the amount of
 data transmitted labelling the line.
+
 ```mermaid
 graph LR;
 subgraph worker_node
 worker_pod_1 -- 8.4 MB --> worker_pod_2
 end;
 ```
+
 ## Acknowledgements
 
 The Service Dependency Graph Plugin is created using [mermaid-js](https://mermaid-js.github.io/mermaid/#/)
@@ -49,6 +52,7 @@ to return the following fields, in arbitrary order.
 - field 8: octetDeltaCount value with name or an alias of `octetDeltaCount`
 
 Clickhouse query example:
+
 ```sql
 SELECT sourcePodName,
 sourcePodLabels,
@@ -77,7 +81,7 @@ For local instances, plugins are installed and updated via a simple CLI command.
 Use the grafana-cli tool to install chord-panel-plugin from the commandline:
 
 ```shell
-grafana-cli --pluginUrl https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0.zip plugins install theia-grafana-dependency-plugin
+grafana-cli --pluginUrl https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre.zip plugins install theia-grafana-dependency-plugin
 ```
 
 The plugin will be installed into your grafana plugins directory; the default is
@@ -86,7 +90,7 @@ The plugin will be installed into your grafana plugins directory; the default is
 Alternatively, you can manually download the .zip file and unpack it into your grafana
 plugins directory.
 
-[Download](https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0.zip)
+[Download](https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre.zip)
 
 Installing to a Grafana deployed on Kubernetes:
 
@@ -96,7 +100,7 @@ as below:
 ```yaml
 env:
 - name: GF_INSTALL_PLUGINS
-   value: "https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0.zip;theia-grafana-dependency-plugin"
+   value: "https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre.zip"
 ```
 
 ### 2. Add the Panel to a Dashboard
