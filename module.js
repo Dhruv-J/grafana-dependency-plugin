@@ -153,12 +153,22 @@ var DependencyPanel = function DependencyPanel(_ref) {
     if (sourcePodLabel === '') {
       srcName = sourcePodName;
     } else {
-      srcName = sourcePodLabel;
+      var appName = JSON.parse(sourcePodLabel)["app"];
+      if (appName === null || appName === '') {
+        srcName = sourcePodName;
+      } else {
+        srcName = appName;
+      }
     }
     if (destinationPodLabel === '') {
       dstName = destinationPodName;
     } else {
-      dstName = destinationPodLabel;
+      var _appName = JSON.parse(destinationPodLabel)["app"];
+      if (_appName === null || _appName === '') {
+        srcName = destinationPodName;
+      } else {
+        srcName = _appName;
+      }
     }
     console.log('successfully set source and destination names from labels');
 
