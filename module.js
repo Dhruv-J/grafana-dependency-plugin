@@ -153,8 +153,11 @@ var DependencyPanel = function DependencyPanel(_ref) {
     if (sourcePodLabel === '') {
       srcName = sourcePodName;
     } else {
-      var appName = JSON.parse(sourcePodLabel)["app"];
-      if (appName === null || appName === '') {
+      var labels = JSON.parse(sourcePodLabel);
+      var appName = labels["app"];
+      console.log('source labels: ' + labels);
+      console.log('source appName: ' + appName);
+      if (appName == null || appName === '') {
         srcName = sourcePodName;
       } else {
         srcName = appName;
@@ -163,14 +166,16 @@ var DependencyPanel = function DependencyPanel(_ref) {
     if (destinationPodLabel === '') {
       dstName = destinationPodName;
     } else {
-      var _appName = JSON.parse(destinationPodLabel)["app"];
-      if (_appName === null || _appName === '') {
+      var _labels = JSON.parse(destinationPodLabel);
+      var _appName = _labels["app"];
+      console.log('dest labels: ' + _labels);
+      console.log('dest appName: ' + _appName);
+      if (_appName == null || _appName === '') {
         srcName = destinationPodName;
       } else {
         srcName = _appName;
       }
     }
-    console.log('successfully set source and destination names from labels');
 
     // determine which nodes contain which pods
     if (nodeToPodMap.has(sourceNodeName) && !((_nodeToPodMap$get = nodeToPodMap.get(sourceNodeName)) !== null && _nodeToPodMap$get !== void 0 && _nodeToPodMap$get.includes(srcName))) {
@@ -210,7 +215,6 @@ var DependencyPanel = function DependencyPanel(_ref) {
       srcToDestMap.set(pod_src, dests);
     }
   }
-  console.log('successfully populated source to destination mappings');
 
   // format pods inside node within graph string
   nodeToPodMap.forEach(function (pods, nodename) {
@@ -234,7 +238,6 @@ var DependencyPanel = function DependencyPanel(_ref) {
       graphString += str;
     });
   });
-  console.log('current graph:\n' + graphString);
 
   // checking if graph syntax is valid
   mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].parseError = function () {
