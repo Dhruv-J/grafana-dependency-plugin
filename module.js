@@ -155,8 +155,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
     } else {
       var labels = JSON.parse(sourcePodLabel);
       var appName = labels["app"];
-      console.log('source labels: ' + labels);
-      console.log('source appName: ' + appName);
+      console.log('source labels: ' + Object.entries(labels));
       if (appName == null || appName === '') {
         srcName = sourcePodName;
       } else {
@@ -168,8 +167,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
     } else {
       var _labels = JSON.parse(destinationPodLabel);
       var _appName = _labels["app"];
-      console.log('dest labels: ' + _labels);
-      console.log('dest appName: ' + _appName);
+      console.log('dest labels: ' + Object.entries(_labels));
       if (_appName == null || _appName === '') {
         srcName = destinationPodName;
       } else {

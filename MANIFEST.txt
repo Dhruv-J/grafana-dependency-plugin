@@ -12,25 +12,25 @@ Hash: SHA512
   ],
   "plugin": "theia-grafana-dependency-plugin",
   "version": "1.0.0",
-  "time": 1675729006732,
+  "time": 1675789698860,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "CHANGELOG.md": "2420b5825e92056a8b381bba5746dd02c107cb080dba3b46203a2b3c71b9d49e",
     "module.js.LICENSE.txt": "021531b700103eb222e461de4b4844890d7dd3bbfbd298af82e2f68f8ed9f045",
-    "module.js.map": "e60112145a7b57abda1bf4806dafe170c97915d8c2d8aa86c020c4234bbb3cf3",
+    "module.js.map": "0c732b90966101a3bf4d15cf6b38b786f91a500cb18e4fc151e82093317cea70",
     "plugin.json": "523429d30855ff9e61bc80bba76780f0fe0d9c20a8431f0d29bfd255a1a8ab12",
     "README.md": "d89fbe71ac4b0ba8d3b5228880598147f0eb5bd6f6b9fa85e30f7abb851e0dff",
-    "module.js": "8e458ce4ffd94862d6feb836860fa362c45f638d6e950c7063e31a03bda0c79b"
+    "module.js": "381d709dc883669be7dda7a73d1142239dcf08f3bfa41c7592efa478a7a7f9a3"
   }
 }
 -----BEGIN PGP SIGNATURE-----
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrgEARMKAAYFAmPhmG4AIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm5xtkAgkBwuqcGLEJp8JG8AhKlyzVcrxLbK+GV6FBk3XlStUFhJnLeG50
-7vSuOdDMtLir7vMwjTfDWobYAIoY46XpuOqf3/4CBjwnRVumALbwaGXnBJvl
-Px/XrxuBbYR0AdBBXyY3cazlSqKrCYwFn5FbGdOTWxGc68+nj3wOtRDxAhJN
-zRovLAnT
-=JCqe
+wrgEARMKAAYFAmPihYMAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5zFuAgkByt9dh/GuGD+RixPV/UZlr0tv8PMMIPEZhFIoSA2f6d98xCy+
+sNM6fVdE+Z8Ms50fanxs9A+xobuxR1NsmOd+8uECCP/iKHXrJ5mddaZVfOn8
+wxdnlFqXwbUvroquPVetqK+V3KVq+h+dUh8Hi85qOQfIWuiebu4pGjK0WygA
+xRSE4S1u
+=m7R1
 -----END PGP SIGNATURE-----
