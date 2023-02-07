@@ -138,7 +138,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
   var nodeToPodMap = new Map();
   var srcToDestMap = new Map();
   var graphString = 'graph LR;\n';
-  for (var i = 0; i < frame.length; i++) {
+  var _loop = function _loop(i) {
     var _nodeToPodMap$get, _nodeToPodMap$get3;
     var sourcePodName = sourcePodNames === null || sourcePodNames === void 0 ? void 0 : sourcePodNames.values.get(i);
     var sourcePodLabel = sourcePodLabels === null || sourcePodLabels === void 0 ? void 0 : sourcePodLabels.values.get(i);
@@ -148,32 +148,50 @@ var DependencyPanel = function DependencyPanel(_ref) {
     var destinationNodeName = destinationNodeNames === null || destinationNodeNames === void 0 ? void 0 : destinationNodeNames.values.get(i);
     var destinationServicePortName = destinationServicePortNames === null || destinationServicePortNames === void 0 ? void 0 : destinationServicePortNames.values.get(i);
     var octetDeltaCount = octetDeltaCounts === null || octetDeltaCounts === void 0 ? void 0 : octetDeltaCounts.values.get(i);
+    function getName(source, labelJSON) {
+      if (labelJSON === '') {
+        var temp = source ? sourcePodName : destinationPodName;
+        console.log('source? ' + source + ' would return ' + temp);
+        return source ? sourcePodName : destinationPodName;
+      }
+      var labels = JSON.parse(labelJSON);
+      if (labels['app'] !== undefined) {
+        return labels['app'];
+      } else if (labels['k8s-app'] !== undefined) {
+        return labels['k8s-app'];
+      } else {
+        console.log('labels: ');
+      }
+      return sourcePodName;
+    }
     var srcName = '',
       dstName = '';
-    if (sourcePodLabel === '') {
-      srcName = sourcePodName;
-    } else {
-      var labels = JSON.parse(sourcePodLabel);
-      var appName = labels["app"];
-      console.log('source labels: ' + Object.entries(labels));
-      if (appName == null || appName === '') {
-        srcName = sourcePodName;
-      } else {
-        srcName = appName;
-      }
-    }
-    if (destinationPodLabel === '') {
-      dstName = destinationPodName;
-    } else {
-      var _labels = JSON.parse(destinationPodLabel);
-      var _appName = _labels["app"];
-      console.log('dest labels: ' + Object.entries(_labels));
-      if (_appName == null || _appName === '') {
-        srcName = destinationPodName;
-      } else {
-        srcName = _appName;
-      }
-    }
+    srcName = getName(true, sourcePodLabel);
+    dstName = getName(false, destinationPodLabel);
+    // if (sourcePodLabel === '') {
+    //   srcName = sourcePodName;
+    // } else {
+    //   let labels = JSON.parse(sourcePodLabel);
+    //   let appName = labels["app"];
+    //   console.log('source labels: '+Object.entries(labels));
+    //   if (appName == null || appName === '') {
+    //     srcName = sourcePodName;
+    //   } else {
+    //     srcName = appName;
+    //   }
+    // }
+    // if (destinationPodLabel === '') {
+    //   dstName = destinationPodName;
+    // } else {
+    //   let labels = JSON.parse(destinationPodLabel);
+    //   let appName = labels["app"];
+    //   console.log('dest labels: '+Object.entries(labels));
+    //   if (appName == null || appName === '') {
+    //     srcName = destinationPodName;
+    //   } else {
+    //     srcName = appName;
+    //   }
+    // }
 
     // determine which nodes contain which pods
     if (nodeToPodMap.has(sourceNodeName) && !((_nodeToPodMap$get = nodeToPodMap.get(sourceNodeName)) !== null && _nodeToPodMap$get !== void 0 && _nodeToPodMap$get.includes(srcName))) {
@@ -212,6 +230,9 @@ var DependencyPanel = function DependencyPanel(_ref) {
     } else {
       srcToDestMap.set(pod_src, dests);
     }
+  };
+  for (var i = 0; i < frame.length; i++) {
+    _loop(i);
   }
 
   // format pods inside node within graph string
