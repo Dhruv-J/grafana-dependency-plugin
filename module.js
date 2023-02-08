@@ -149,8 +149,6 @@ var DependencyPanel = function DependencyPanel(_ref) {
     var destinationServicePortName = destinationServicePortNames === null || destinationServicePortNames === void 0 ? void 0 : destinationServicePortNames.values.get(i);
     var octetDeltaCount = octetDeltaCounts === null || octetDeltaCounts === void 0 ? void 0 : octetDeltaCounts.values.get(i);
     function getName(source, labelJSON) {
-      var temp = source ? sourcePodName : destinationPodName;
-      console.log('source? ' + source + ' would return ' + temp);
       if (labelJSON === '') {
         return source ? sourcePodName : destinationPodName;
       }
@@ -159,8 +157,6 @@ var DependencyPanel = function DependencyPanel(_ref) {
         return labels['app'];
       } else if (labels['k8s-app'] !== undefined) {
         return labels['k8s-app'];
-      } else {
-        console.log('labels: ');
       }
       return sourcePodName;
     }
