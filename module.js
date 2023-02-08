@@ -168,30 +168,6 @@ var DependencyPanel = function DependencyPanel(_ref) {
       dstName = '';
     srcName = getName(true, sourcePodLabel);
     dstName = getName(false, destinationPodLabel);
-    // if (sourcePodLabel === '') {
-    //   srcName = sourcePodName;
-    // } else {
-    //   let labels = JSON.parse(sourcePodLabel);
-    //   let appName = labels["app"];
-    //   console.log('source labels: '+Object.entries(labels));
-    //   if (appName == null || appName === '') {
-    //     srcName = sourcePodName;
-    //   } else {
-    //     srcName = appName;
-    //   }
-    // }
-    // if (destinationPodLabel === '') {
-    //   dstName = destinationPodName;
-    // } else {
-    //   let labels = JSON.parse(destinationPodLabel);
-    //   let appName = labels["app"];
-    //   console.log('dest labels: '+Object.entries(labels));
-    //   if (appName == null || appName === '') {
-    //     srcName = destinationPodName;
-    //   } else {
-    //     srcName = appName;
-    //   }
-    // }
 
     // determine which nodes contain which pods
     if (nodeToPodMap.has(sourceNodeName) && !((_nodeToPodMap$get = nodeToPodMap.get(sourceNodeName)) !== null && _nodeToPodMap$get !== void 0 && _nodeToPodMap$get.includes(srcName))) {
