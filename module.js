@@ -114,17 +114,11 @@ var DependencyPanel = function DependencyPanel(_ref) {
   var sourcePodNames = frame.fields.find(function (field) {
     return field.name === 'sourcePodName';
   });
-  var sourcePodLabels = frame.fields.find(function (field) {
-    return field.name === 'sourcePodLabels';
-  });
   var sourceNodeNames = frame.fields.find(function (field) {
     return field.name === 'sourceNodeName';
   });
   var destinationPodNames = frame.fields.find(function (field) {
     return field.name === 'destinationPodName';
-  });
-  var destinationPodLabels = frame.fields.find(function (field) {
-    return field.name === 'destinationPodLabels';
   });
   var destinationNodeNames = frame.fields.find(function (field) {
     return field.name === 'destinationNodeName';
@@ -138,49 +132,31 @@ var DependencyPanel = function DependencyPanel(_ref) {
   var nodeToPodMap = new Map();
   var srcToDestMap = new Map();
   var graphString = 'graph LR;\n';
-  var _loop = function _loop(i) {
+  for (var i = 0; i < frame.length; i++) {
     var _nodeToPodMap$get, _nodeToPodMap$get3;
     var sourcePodName = sourcePodNames === null || sourcePodNames === void 0 ? void 0 : sourcePodNames.values.get(i);
-    var sourcePodLabel = sourcePodLabels === null || sourcePodLabels === void 0 ? void 0 : sourcePodLabels.values.get(i);
     var sourceNodeName = sourceNodeNames === null || sourceNodeNames === void 0 ? void 0 : sourceNodeNames.values.get(i);
     var destinationPodName = destinationPodNames === null || destinationPodNames === void 0 ? void 0 : destinationPodNames.values.get(i);
-    var destinationPodLabel = destinationPodLabels === null || destinationPodLabels === void 0 ? void 0 : destinationPodLabels.values.get(i);
     var destinationNodeName = destinationNodeNames === null || destinationNodeNames === void 0 ? void 0 : destinationNodeNames.values.get(i);
     var destinationServicePortName = destinationServicePortNames === null || destinationServicePortNames === void 0 ? void 0 : destinationServicePortNames.values.get(i);
     var octetDeltaCount = octetDeltaCounts === null || octetDeltaCounts === void 0 ? void 0 : octetDeltaCounts.values.get(i);
-    function getName(source, labelJSON) {
-      if (labelJSON === '') {
-        return source ? sourcePodName : destinationPodName;
-      }
-      var labels = JSON.parse(labelJSON);
-      if (labels['app'] !== undefined) {
-        return labels['app'];
-      } else if (labels['k8s-app'] !== undefined) {
-        return labels['k8s-app'];
-      }
-      return sourcePodName;
-    }
-    var srcName = '',
-      dstName = '';
-    srcName = getName(true, sourcePodLabel);
-    dstName = getName(false, destinationPodLabel);
 
     // determine which nodes contain which pods
-    if (nodeToPodMap.has(sourceNodeName) && !((_nodeToPodMap$get = nodeToPodMap.get(sourceNodeName)) !== null && _nodeToPodMap$get !== void 0 && _nodeToPodMap$get.includes(srcName))) {
+    if (nodeToPodMap.has(sourceNodeName) && !((_nodeToPodMap$get = nodeToPodMap.get(sourceNodeName)) !== null && _nodeToPodMap$get !== void 0 && _nodeToPodMap$get.includes(sourcePodName))) {
       var _nodeToPodMap$get2;
-      (_nodeToPodMap$get2 = nodeToPodMap.get(sourceNodeName)) === null || _nodeToPodMap$get2 === void 0 ? void 0 : _nodeToPodMap$get2.push(srcName);
+      (_nodeToPodMap$get2 = nodeToPodMap.get(sourceNodeName)) === null || _nodeToPodMap$get2 === void 0 ? void 0 : _nodeToPodMap$get2.push(sourcePodName);
     } else if (!nodeToPodMap.has(sourceNodeName)) {
-      nodeToPodMap.set(sourceNodeName, [srcName]);
+      nodeToPodMap.set(sourceNodeName, [sourcePodName]);
     }
-    if (nodeToPodMap.has(destinationNodeName) && !((_nodeToPodMap$get3 = nodeToPodMap.get(destinationNodeName)) !== null && _nodeToPodMap$get3 !== void 0 && _nodeToPodMap$get3.includes(dstName))) {
+    if (nodeToPodMap.has(destinationNodeName) && !((_nodeToPodMap$get3 = nodeToPodMap.get(destinationNodeName)) !== null && _nodeToPodMap$get3 !== void 0 && _nodeToPodMap$get3.includes(destinationPodName))) {
       var _nodeToPodMap$get4;
-      (_nodeToPodMap$get4 = nodeToPodMap.get(destinationNodeName)) === null || _nodeToPodMap$get4 === void 0 ? void 0 : _nodeToPodMap$get4.push(dstName);
+      (_nodeToPodMap$get4 = nodeToPodMap.get(destinationNodeName)) === null || _nodeToPodMap$get4 === void 0 ? void 0 : _nodeToPodMap$get4.push(destinationPodName);
     } else if (!nodeToPodMap.has(destinationNodeName)) {
-      nodeToPodMap.set(destinationNodeName, [dstName]);
+      nodeToPodMap.set(destinationNodeName, [destinationPodName]);
     }
     // determine how much traffic is being sent
-    var pod_src = sourceNodeName + '_pod_' + srcName;
-    var pod_dst = destinationNodeName + '_pod_' + dstName;
+    var pod_src = sourceNodeName + '_pod_' + sourcePodName;
+    var pod_dst = destinationNodeName + '_pod_' + destinationPodName;
     var svc_dst = 'svc_' + destinationServicePortName;
     var dests = new Map([[pod_dst, octetDeltaCount], [svc_dst, octetDeltaCount]]);
     if (srcToDestMap.has(pod_src)) {
@@ -202,9 +178,6 @@ var DependencyPanel = function DependencyPanel(_ref) {
     } else {
       srcToDestMap.set(pod_src, dests);
     }
-  };
-  for (var i = 0; i < frame.length; i++) {
-    _loop(i);
   }
 
   // format pods inside node within graph string
