@@ -43,32 +43,28 @@ loading of data for the Service Dependency Graph Plugin, the query is expected
 to return the following fields, in arbitrary order.
 
 - field 1: sourcePodName value with name or an alias of `sourcePodName`
-- field 2: sourcePodLabels value with name or an alias of `sourcePodLabels`
-- field 3: sourceNodeName value with name or an alias of `sourceNodeName`
-- field 4: destinationPodName value with name or an alias of `destinationPodName`
-- field 5: destinationPodLabels value with name or an alias of `destinationPodLabels`
-- field 6: destinationNodeName value with name or an alias of `destinationNodeName`
-- field 7: destinationServicePortName value with name or an alias of `destinationServicePortName`
-- field 8: octetDeltaCount value with name or an alias of `octetDeltaCount`
+- field 2: sourceNodeName value with name or an alias of `sourceNodeName`
+- field 3: destinationPodName value with name or an alias of `destinationPodName`
+- field 4: destinationNodeName value with name or an alias of `destinationNodeName`
+- field 5: destinationServicePortName value with name or an alias of `destinationServicePortName`
+- field 6: octetDeltaCount value with name or an alias of `octetDeltaCount`
 
 Clickhouse query example:
 
 ```sql
 SELECT sourcePodName,
-sourcePodLabels,
 sourceNodeName,
 destinationPodName,
-destinationPodLabels,
 destinationNodeName,
 destinationServicePortName,
 octetDeltaCount
 FROM flows
-WHERE ( destinationPodName IS NOT NULL AND destinationPodName != '' AND destinationPodName != 'undefined' )
-AND ( sourcePodName IS NOT NULL AND sourcePodName != '' AND sourcePodName != 'undefined' )
-AND ( positionCaseInsensitiveUTF8('${querySourcePodNamespace:raw}', sourcePodNamespace) > 0 )
-AND ( positionCaseInsensitiveUTF8('${queryDestinationPodNamespace:raw}', destinationPodNamespace) > 0 )
-AND ( positionCaseInsensitiveUTF8('${queryFlowType:raw}', CAST(flowType AS varchar)) > 0 )
-LIMIT ${queryNumFlows}
+WHERE   ( destinationPodName IS NOT NULL AND destinationPodName != '' )
+AND ( destinationServicePortName IS NOT NULL AND destinationServicePortName != '' )
+AND ( sourcePodName IS NOT NULL AND sourcePodName != '' )
+AND ( octetDeltaCount IS NOT NULL AND octetDeltaCount != 0)
+AND $__timeFilter(flowEndSeconds)
+ORDER BY flowEndSeconds
 ```
 
 ## Installation
