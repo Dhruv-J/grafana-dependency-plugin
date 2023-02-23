@@ -4,8 +4,7 @@
 
 Grafana Service Dependency Plugin allows users to visualize how Pods send
 and receive traffic to and from other Pods and Services. To help visualize the
-flows, the plugin groups Pods by Pod labels and shows them 'inside' the Node
-they are a part of.
+flows, the plugin shows them 'inside' the Node they are a part of.
 
 ```mermaid
 graph LR;
@@ -16,7 +15,7 @@ end;
 ```
 
 A line pointing from source to destination is also shown, with the amount of
-data transmitted labelling the line.
+data transmitted in the selected time range labelling the line.
 
 ```mermaid
 graph LR;
@@ -38,7 +37,7 @@ Supported Databases:
 ## Queries Convention
 
 Currently the Service Dependency Graph Plugin is created for restricted uses,
-only for visualizing transmitted data between Pods and services. For correct
+only for visualizing transmitted data between Pods and Services. For correct
 loading of data for the Service Dependency Graph Plugin, the query is expected
 to return the following fields, in arbitrary order.
 
@@ -59,12 +58,11 @@ destinationNodeName,
 destinationServicePortName,
 octetDeltaCount
 FROM flows
-WHERE   ( destinationPodName IS NOT NULL AND destinationPodName != '' )
-AND ( destinationServicePortName IS NOT NULL AND destinationServicePortName != '' )
-AND ( sourcePodName IS NOT NULL AND sourcePodName != '' )
-AND ( octetDeltaCount IS NOT NULL AND octetDeltaCount != 0)
+WHERE   destinationPodName != ''
+AND sourcePodName != ''
+AND octetDeltaCount != 0
 AND $__timeFilter(flowEndSeconds)
-ORDER BY flowEndSeconds
+ORDER BY flowEndSeconds DESC
 ```
 
 ## Installation
@@ -96,7 +94,7 @@ as below:
 ```yaml
 env:
 - name: GF_INSTALL_PLUGINS
-   value: "https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre2.zip"
+   value: "https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre2.zip;theia-grafana-dependency-plugin"
 ```
 
 ### 2. Add the Panel to a Dashboard
