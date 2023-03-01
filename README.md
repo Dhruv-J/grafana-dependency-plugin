@@ -48,7 +48,7 @@ to return the following fields, in arbitrary order.
 - field 5: destinationServicePortName value with name or an alias of `destinationServicePortName`
 - field 6: octetDeltaCount value with name or an alias of `octetDeltaCount`
 
-Clickhouse query example:
+ClickHouse query example:
 
 ```sql
 SELECT sourcePodName,
@@ -58,7 +58,7 @@ destinationNodeName,
 destinationServicePortName,
 octetDeltaCount
 FROM flows
-WHERE   destinationPodName != ''
+WHERE destinationPodName != ''
 AND sourcePodName != ''
 AND octetDeltaCount != 0
 AND $__timeFilter(flowEndSeconds)
@@ -94,7 +94,7 @@ as below:
 ```yaml
 env:
 - name: GF_INSTALL_PLUGINS
-   value: "https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre2.zip;theia-grafana-dependency-plugin"
+   value: "https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre3.zip;theia-grafana-dependency-plugin"
 ```
 
 ### 2. Add the Panel to a Dashboard
