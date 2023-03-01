@@ -84,7 +84,7 @@ The plugin will be installed into your grafana plugins directory; the default is
 Alternatively, you can manually download the .zip file and unpack it into your grafana
 plugins directory.
 
-[Download](https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0)
+[Download](https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0.zip)
 
 Installing to a Grafana deployed on Kubernetes:
 
@@ -94,7 +94,7 @@ as below:
 ```yaml
 env:
 - name: GF_INSTALL_PLUGINS
-   value: "https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0;theia-grafana-dependency-plugin"
+   value: "https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0.zip;theia-grafana-dependency-plugin"
 ```
 
 ### 2. Add the Panel to a Dashboard
