@@ -75,7 +75,7 @@ For local instances, plugins are installed and updated via a simple CLI command.
 Use the grafana-cli tool to install chord-panel-plugin from the commandline:
 
 ```shell
-grafana-cli --pluginUrl https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre2.zip plugins install theia-grafana-dependency-plugin
+grafana-cli --pluginUrl https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0.zip plugins install theia-grafana-dependency-plugin
 ```
 
 The plugin will be installed into your grafana plugins directory; the default is
@@ -84,7 +84,7 @@ The plugin will be installed into your grafana plugins directory; the default is
 Alternatively, you can manually download the .zip file and unpack it into your grafana
 plugins directory.
 
-[Download](https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre2.zip)
+[Download](https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0)
 
 Installing to a Grafana deployed on Kubernetes:
 
@@ -94,7 +94,7 @@ as below:
 ```yaml
 env:
 - name: GF_INSTALL_PLUGINS
-   value: "https://github.com/Dhruv-J/grafana-dependency-plugin/archive/refs/tags/pre3.zip;theia-grafana-dependency-plugin"
+   value: "https://downloads.antrea.io/artifacts/grafana-custom-plugins/theia-grafana-dependency-plugin-1.0.0;theia-grafana-dependency-plugin"
 ```
 
 ### 2. Add the Panel to a Dashboard
