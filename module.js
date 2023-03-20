@@ -84,9 +84,9 @@ mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].initialize({
   startOnLoad: true,
   theme: 'base',
   themeVariables: {
-    primaryColor: '#98C1D9',
+    primaryColor: '#A3CEF1',
     secondaryColor: '#fff',
-    tertiaryColor: '#F2FEFF',
+    tertiaryColor: '#E7ECEF',
     primaryTextColor: '#000000',
     lineColor: '#000000'
   }
