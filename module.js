@@ -87,14 +87,11 @@ mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].initialize({
   startOnLoad: true,
   theme: 'base',
   themeVariables: {
-    primaryColor: GetPrimaryColor(),
+    primaryColor: '#4DA167',
     primaryTextColor: '#fff',
     lineColor: '#fff'
   }
 });
-function GetPrimaryColor() {
-  return (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.useTheme2)().colors.primary.main;
-}
 var Mermaid = /*#__PURE__*/function (_React$Component) {
   _inherits(Mermaid, _React$Component);
   var _super = _createSuper(Mermaid);
