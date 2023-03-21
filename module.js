@@ -87,10 +87,8 @@ mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].initialize({
     primaryColor: '#3871DC',
     secondaryColor: '#fff',
     tertiaryColor: '#DBF2FF',
-    primaryTextColor: '#fff',
-    nodeTextColor: '#000000',
+    primaryTextColor: '#000000',
     secondaryTextColor: '#000000',
-    edgeLabelBackground: '#000000',
     lineColor: '#000000'
   }
 });
