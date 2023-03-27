@@ -1,4 +1,4 @@
-define(["@grafana/data","d3","react"], (__WEBPACK_EXTERNAL_MODULE__grafana_data__, __WEBPACK_EXTERNAL_MODULE_d3__, __WEBPACK_EXTERNAL_MODULE_react__) => { return /******/ (() => { // webpackBootstrap
+define(["@grafana/data","@grafana/ui","d3","react"], (__WEBPACK_EXTERNAL_MODULE__grafana_data__, __WEBPACK_EXTERNAL_MODULE__grafana_ui__, __WEBPACK_EXTERNAL_MODULE_d3__, __WEBPACK_EXTERNAL_MODULE_react__) => { return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../node_modules/@braintree/sanitize-url/dist/index.js":
@@ -65,7 +65,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mermaid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mermaid */ "../node_modules/mermaid/dist/mermaid.core.mjs");
+/* harmony import */ var mermaid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mermaid */ "../node_modules/mermaid/dist/mermaid.core.mjs");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 var _div;
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80,18 +82,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#3871DC',
-    secondaryColor: '#fff',
-    tertiaryColor: '#DBF2FF',
-    primaryTextColor: '#000000',
-    secondaryTextColor: '#000000',
-    lineColor: '#000000'
-  }
-});
+
 var Mermaid = /*#__PURE__*/function (_React$Component) {
   _inherits(Mermaid, _React$Component);
   var _super = _createSuper(Mermaid);
@@ -102,7 +93,7 @@ var Mermaid = /*#__PURE__*/function (_React$Component) {
   _createClass(Mermaid, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].contentLoaded();
+      mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].contentLoaded();
     }
   }, {
     key: "render",
@@ -119,6 +110,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
     data = _ref.data,
     width = _ref.width,
     height = _ref.height;
+  var theme = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.useTheme2)();
   var frame = data.series[0];
   var sourcePodNames = frame.fields.find(function (field) {
     return field.name === 'sourcePodName';
@@ -141,6 +133,18 @@ var DependencyPanel = function DependencyPanel(_ref) {
   var nodeToPodMap = new Map();
   var srcToDestMap = new Map();
   var graphString = 'graph LR;\n';
+  mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: theme.colors.primary.main,
+      secondaryColor: '#fff',
+      tertiaryColor: '#DBF2FF',
+      primaryTextColor: '#000000',
+      secondaryTextColor: '#000000',
+      lineColor: '#000000'
+    }
+  });
   for (var i = 0; i < frame.length; i++) {
     var _nodeToPodMap$get, _nodeToPodMap$get3;
     var sourcePodName = sourcePodNames === null || sourcePodNames === void 0 ? void 0 : sourcePodNames.values.get(i);
@@ -219,18 +223,18 @@ var DependencyPanel = function DependencyPanel(_ref) {
   });
 
   // checking if graph syntax is valid
-  mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].parseError = function () {
+  mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].parseError = function () {
     console.log('incorrect graph syntax for graph:\n' + graphString);
     return _div || (_div = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Incorrect Graph Syntax")));
   };
-  if (mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].parse(graphString)) {
+  if (mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].parse(graphString)) {
     var graphElement = document.getElementsByClassName("graphDiv")[0];
     // null check because the div does not exist at this point during the first run
     if (graphElement != null) {
       var insertSvg = function insertSvg(svgCode) {
         graphElement.innerHTML = svgCode;
       };
-      mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].mermaidAPI.render('graphDiv', graphString, insertSvg);
+      mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].mermaidAPI.render('graphDiv', graphString, insertSvg);
     }
   }
 
@@ -17561,6 +17565,17 @@ function validate(uuid) {
 
 "use strict";
 module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_data__;
+
+/***/ }),
+
+/***/ "@grafana/ui":
+/*!******************************!*\
+  !*** external "@grafana/ui" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_ui__;
 
 /***/ }),
 
