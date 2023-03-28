@@ -141,7 +141,9 @@ var DependencyPanel = function DependencyPanel(_ref) {
       secondaryColor: theme.colors.background.canvas,
       tertiaryColor: theme.colors.warning.main,
       primaryTextColor: theme.colors.text,
-      secondaryTextColor: theme.colors.primary.contrastText,
+      secondaryTextColor: theme.colors.text.maxContrast,
+      tertiaryTextColor: theme.colors.text.maxContrast,
+      textColor: theme.colors.text.maxContrast,
       lineColor: theme.colors.text.maxContrast
     }
   });
