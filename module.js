@@ -1,4 +1,4 @@
-define(["@grafana/data","@grafana/ui","d3","react"], (__WEBPACK_EXTERNAL_MODULE__grafana_data__, __WEBPACK_EXTERNAL_MODULE__grafana_ui__, __WEBPACK_EXTERNAL_MODULE_d3__, __WEBPACK_EXTERNAL_MODULE_react__) => { return /******/ (() => { // webpackBootstrap
+define(["@grafana/data","d3","react"], (__WEBPACK_EXTERNAL_MODULE__grafana_data__, __WEBPACK_EXTERNAL_MODULE_d3__, __WEBPACK_EXTERNAL_MODULE_react__) => { return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../node_modules/@braintree/sanitize-url/dist/index.js":
@@ -65,9 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mermaid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mermaid */ "../node_modules/mermaid/dist/mermaid.core.mjs");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var mermaid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mermaid */ "../node_modules/mermaid/dist/mermaid.core.mjs");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 var _div;
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -82,7 +80,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
+mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].initialize({
+  startOnLoad: true
+});
 var Mermaid = /*#__PURE__*/function (_React$Component) {
   _inherits(Mermaid, _React$Component);
   var _super = _createSuper(Mermaid);
@@ -93,7 +93,7 @@ var Mermaid = /*#__PURE__*/function (_React$Component) {
   _createClass(Mermaid, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].contentLoaded();
+      mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].contentLoaded();
     }
   }, {
     key: "render",
@@ -110,16 +110,21 @@ var DependencyPanel = function DependencyPanel(_ref) {
     data = _ref.data,
     width = _ref.width,
     height = _ref.height;
-  var theme = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.useTheme2)();
   var frame = data.series[0];
   var sourcePodNames = frame.fields.find(function (field) {
     return field.name === 'sourcePodName';
+  });
+  var sourcePodLabels = frame.fields.find(function (field) {
+    return field.name === 'sourcePodLabels';
   });
   var sourceNodeNames = frame.fields.find(function (field) {
     return field.name === 'sourceNodeName';
   });
   var destinationPodNames = frame.fields.find(function (field) {
     return field.name === 'destinationPodName';
+  });
+  var destinationPodLabels = frame.fields.find(function (field) {
+    return field.name === 'destinationPodLabels';
   });
   var destinationNodeNames = frame.fields.find(function (field) {
     return field.name === 'destinationNodeName';
@@ -133,42 +138,49 @@ var DependencyPanel = function DependencyPanel(_ref) {
   var nodeToPodMap = new Map();
   var srcToDestMap = new Map();
   var graphString = 'graph LR;\n';
-  mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].initialize({
-    startOnLoad: true,
-    theme: 'base',
-    themeVariables: {
-      primaryColor: theme.colors.primary.main,
-      secondaryColor: theme.colors.background.canvas,
-      tertiaryColor: theme.colors.background.canvas,
-      primaryTextColor: theme.colors.text.maxContrast,
-      lineColor: theme.colors.text.maxContrast
-    }
-  });
-  for (var i = 0; i < frame.length; i++) {
+  var _loop = function _loop(i) {
     var _nodeToPodMap$get, _nodeToPodMap$get3;
     var sourcePodName = sourcePodNames === null || sourcePodNames === void 0 ? void 0 : sourcePodNames.values.get(i);
+    var sourcePodLabel = sourcePodLabels === null || sourcePodLabels === void 0 ? void 0 : sourcePodLabels.values.get(i);
     var sourceNodeName = sourceNodeNames === null || sourceNodeNames === void 0 ? void 0 : sourceNodeNames.values.get(i);
     var destinationPodName = destinationPodNames === null || destinationPodNames === void 0 ? void 0 : destinationPodNames.values.get(i);
+    var destinationPodLabel = destinationPodLabels === null || destinationPodLabels === void 0 ? void 0 : destinationPodLabels.values.get(i);
     var destinationNodeName = destinationNodeNames === null || destinationNodeNames === void 0 ? void 0 : destinationNodeNames.values.get(i);
     var destinationServicePortName = destinationServicePortNames === null || destinationServicePortNames === void 0 ? void 0 : destinationServicePortNames.values.get(i);
     var octetDeltaCount = octetDeltaCounts === null || octetDeltaCounts === void 0 ? void 0 : octetDeltaCounts.values.get(i);
+    function getName(groupByLabel, source, labelJSON) {
+      if (!groupByLabel || labelJSON === '') {
+        return source ? sourcePodName : destinationPodName;
+      }
+      var labels = JSON.parse(labelJSON);
+      if (labels['app'] !== undefined) {
+        return labels['app'];
+      } else if (labels['k8s-app'] !== undefined) {
+        return labels['k8s-app'];
+      }
+      return sourcePodName;
+    }
+    var groupByLabel = false;
+    var srcName = getName(groupByLabel, true, sourcePodLabel);
+    var dstName = getName(groupByLabel, false, destinationPodLabel);
 
     // determine which nodes contain which pods
-    if (nodeToPodMap.has(sourceNodeName) && !((_nodeToPodMap$get = nodeToPodMap.get(sourceNodeName)) !== null && _nodeToPodMap$get !== void 0 && _nodeToPodMap$get.includes(sourcePodName))) {
+    if (nodeToPodMap.has(sourceNodeName) && !((_nodeToPodMap$get = nodeToPodMap.get(sourceNodeName)) !== null && _nodeToPodMap$get !== void 0 && _nodeToPodMap$get.includes(srcName))) {
       var _nodeToPodMap$get2;
-      (_nodeToPodMap$get2 = nodeToPodMap.get(sourceNodeName)) === null || _nodeToPodMap$get2 === void 0 ? void 0 : _nodeToPodMap$get2.push(sourcePodName);
+      (_nodeToPodMap$get2 = nodeToPodMap.get(sourceNodeName)) === null || _nodeToPodMap$get2 === void 0 ? void 0 : _nodeToPodMap$get2.push(srcName);
     } else if (!nodeToPodMap.has(sourceNodeName)) {
-      nodeToPodMap.set(sourceNodeName, [sourcePodName]);
+      nodeToPodMap.set(sourceNodeName, [srcName]);
     }
-    if (nodeToPodMap.has(destinationNodeName) && !((_nodeToPodMap$get3 = nodeToPodMap.get(destinationNodeName)) !== null && _nodeToPodMap$get3 !== void 0 && _nodeToPodMap$get3.includes(destinationPodName))) {
+    if (nodeToPodMap.has(destinationNodeName) && !((_nodeToPodMap$get3 = nodeToPodMap.get(destinationNodeName)) !== null && _nodeToPodMap$get3 !== void 0 && _nodeToPodMap$get3.includes(dstName))) {
       var _nodeToPodMap$get4;
-      (_nodeToPodMap$get4 = nodeToPodMap.get(destinationNodeName)) === null || _nodeToPodMap$get4 === void 0 ? void 0 : _nodeToPodMap$get4.push(destinationPodName);
+      (_nodeToPodMap$get4 = nodeToPodMap.get(destinationNodeName)) === null || _nodeToPodMap$get4 === void 0 ? void 0 : _nodeToPodMap$get4.push(dstName);
     } else if (!nodeToPodMap.has(destinationNodeName)) {
-      nodeToPodMap.set(destinationNodeName, [destinationPodName]);
+      nodeToPodMap.set(destinationNodeName, [dstName]);
     }
+
     // determine how much traffic is being sent
-    var pod_src = sourceNodeName + '_pod_' + sourcePodName;
-    var pod_dst = destinationNodeName + '_pod_' + destinationPodName;
+    var pod_src = sourceNodeName + '_pod_' + srcName;
+    var pod_dst = destinationNodeName + '_pod_' + dstName;
     var svc_dst = 'svc_' + destinationServicePortName;
     var dests = new Map();
     dests.set(pod_dst, octetDeltaCount);
@@ -185,7 +197,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
         (_srcToDestMap$get4 = srcToDestMap.get(pod_src)) === null || _srcToDestMap$get4 === void 0 ? void 0 : _srcToDestMap$get4.set(pod_dst, octetDeltaCount);
       }
       if (destinationServicePortName === '') {
-        continue;
+        return "continue";
       } else if ((_srcToDestMap$get5 = srcToDestMap.get(pod_src)) !== null && _srcToDestMap$get5 !== void 0 && _srcToDestMap$get5.has(svc_dst)) {
         var _srcToDestMap$get6, _srcToDestMap$get7;
         (_srcToDestMap$get6 = srcToDestMap.get(pod_src)) === null || _srcToDestMap$get6 === void 0 ? void 0 : _srcToDestMap$get6.set(svc_dst, octetDeltaCount + ((_srcToDestMap$get7 = srcToDestMap.get(pod_src)) === null || _srcToDestMap$get7 === void 0 ? void 0 : _srcToDestMap$get7.get(svc_dst)));
@@ -196,6 +208,10 @@ var DependencyPanel = function DependencyPanel(_ref) {
     } else {
       srcToDestMap.set(pod_src, dests);
     }
+  };
+  for (var i = 0; i < frame.length; i++) {
+    var _ret = _loop(i);
+    if (_ret === "continue") continue;
   }
 
   // format pods inside node within graph string
@@ -222,18 +238,18 @@ var DependencyPanel = function DependencyPanel(_ref) {
   });
 
   // checking if graph syntax is valid
-  mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].parseError = function () {
+  mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].parseError = function () {
     console.log('incorrect graph syntax for graph:\n' + graphString);
     return _div || (_div = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Incorrect Graph Syntax")));
   };
-  if (mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].parse(graphString)) {
+  if (mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].parse(graphString)) {
     var graphElement = document.getElementsByClassName("graphDiv")[0];
     // null check because the div does not exist at this point during the first run
     if (graphElement != null) {
       var insertSvg = function insertSvg(svgCode) {
         graphElement.innerHTML = svgCode;
       };
-      mermaid__WEBPACK_IMPORTED_MODULE_2__["default"].mermaidAPI.render('graphDiv', graphString, insertSvg);
+      mermaid__WEBPACK_IMPORTED_MODULE_1__["default"].mermaidAPI.render('graphDiv', graphString, insertSvg);
     }
   }
 
@@ -17564,17 +17580,6 @@ function validate(uuid) {
 
 "use strict";
 module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_data__;
-
-/***/ }),
-
-/***/ "@grafana/ui":
-/*!******************************!*\
-  !*** external "@grafana/ui" ***!
-  \******************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_ui__;
 
 /***/ }),
 
