@@ -139,7 +139,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
     themeVariables: {
       primaryColor: theme.colors.primary.main,
       secondaryColor: theme.colors.background.canvas,
-      tertiaryColor: theme.colors.warning.main,
+      tertiaryColor: theme.colors.success.main,
       primaryTextColor: theme.colors.text.maxContrast,
       lineColor: theme.colors.text.maxContrast
     }
