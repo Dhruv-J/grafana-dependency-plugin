@@ -12,25 +12,25 @@ Hash: SHA512
   ],
   "plugin": "theia-grafana-dependency-plugin",
   "version": "1.0.0",
-  "time": 1679945409015,
+  "time": 1679970705164,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "CHANGELOG.md": "6e225cc9287e179b3c3e0837a3001425662c1b5e86992af73d995065c6c9c5d8",
     "module.js.LICENSE.txt": "021531b700103eb222e461de4b4844890d7dd3bbfbd298af82e2f68f8ed9f045",
-    "module.js.map": "242f5f1165205e3f39bb42c099d393fe28d4fc489704aa8783ed7edca1e38ec9",
-    "plugin.json": "19ecda22fdbb0c726f65fe3dd3027839652a6ad109125fe3f5f25e94930884fb",
+    "module.js.map": "0164915a29c5cba302f4ca56d78c073eccad767e161cd295e788a4500a3b7fb1",
+    "plugin.json": "84c8788092799913f8e64f01144c2492e2c11809931588c9a354db4205cc5689",
     "README.md": "16c3aa0ec2f35f5d2240d86e57510b2c4d4b2ff1f852726da5cf8f7296090fb6",
-    "module.js": "8fb022fa879e85a2226c673288b813f4cfd12eed93101350854d4e480b30cd3d"
+    "module.js": "d2aba212b7ab86f443ea15adaf208c14e50ce317c2c59d1c2e56f86f889898a4"
   }
 }
 -----BEGIN PGP SIGNATURE-----
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrgEARMKAAYFAmQh7sEAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm56zkAgijNE+dzYsbXtYN00fpIGz0rovP2nzf5tRsekKdiFZCuZDS2k1v
-SXvnaQhceMkPy74zFR1+YY4GYMidaNCDkpqlOwIJAWxvMmPTsCU7AdgAPRNP
-mYkNPlXrniDO6TrPai44PIngPDyvrWo3qzkHy8jizTvQ04Hg4r1K0o5RIx5E
-OsGa/Erg
-=uxd+
+wrgEARMKAAYFAmQiUZEAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5xHQAgkBLijadOQXvRtXPPGBFxyLPHAxpIFX477nr8TttO01N5Y1HbCU
+ATb3vGFlDH9GsuGoBR7D8R+P/OBhpy6oDpujx/ICCN40fclgh2bREmCJHwu6
+EfJ+Gr0y8l4lfa7JcLcL6jr0NFQv7J3mt57hzuktEY/QAWPuHMShXhTX2Nt+
+A9Ox+N2V
+=kxY1
 -----END PGP SIGNATURE-----

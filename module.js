@@ -138,11 +138,11 @@ var DependencyPanel = function DependencyPanel(_ref) {
     theme: 'base',
     themeVariables: {
       primaryColor: theme.colors.primary.main,
-      secondaryColor: '#fff',
-      tertiaryColor: '#DBF2FF',
-      primaryTextColor: '#000000',
-      secondaryTextColor: '#000000',
-      lineColor: '#000000'
+      secondaryColor: theme.colors.background.canvas,
+      tertiaryColor: theme.colors.warning.main,
+      primaryTextColor: theme.colors.text,
+      secondaryTextColor: theme.colors.primary.contrastText,
+      lineColor: theme.colors.text.maxContrast
     }
   });
   for (var i = 0; i < frame.length; i++) {
