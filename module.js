@@ -149,7 +149,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
     var destinationServicePortName = destinationServicePortNames === null || destinationServicePortNames === void 0 ? void 0 : destinationServicePortNames.values.get(i);
     var octetDeltaCount = octetDeltaCounts === null || octetDeltaCounts === void 0 ? void 0 : octetDeltaCounts.values.get(i);
     function getName(groupByLabel, source, labelJSON) {
-      if (!groupByLabel || labelJSON === '') {
+      if (!groupByLabel || labelJSON === undefined) {
         return source ? sourcePodName : destinationPodName;
       }
       console.log('attempting to log JSON: ' + labelJSON);
