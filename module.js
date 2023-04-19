@@ -47434,8 +47434,9 @@ var plugin = new _grafana_data__WEBPACK_IMPORTED_MODULE_0__.PanelPlugin(_Depende
   }).addTextInput({
     path: 'labelName',
     name: 'Label Name',
-    defaultValue: 'app',
-    description: 'label name to group by'
+    settings: {
+      placeholder: 'app'
+    }
   }).addRadio({
     path: 'color',
     name: 'Box Color',
