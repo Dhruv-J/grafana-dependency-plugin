@@ -176,11 +176,9 @@ var DependencyPanel = function DependencyPanel(_ref) {
     var destinationServicePortName = destinationServicePortNames === null || destinationServicePortNames === void 0 ? void 0 : destinationServicePortNames.values.get(i);
     var octetDeltaCount = octetDeltaCounts === null || octetDeltaCounts === void 0 ? void 0 : octetDeltaCounts.values.get(i);
     function getName(groupByLabel, source, labelJSON) {
-      if (!groupByLabel || labelJSON === undefined || options.labelName === '') {
-        console.log('labelName: ' + options.labelName);
+      if (!groupByLabel || labelJSON === undefined || options.labelName === undefined) {
         return source ? sourcePodName : destinationPodName;
       }
-      console.log('attempting to log JSON: ' + labelJSON);
       var labels = JSON.parse(labelJSON);
       if (labels[options.labelName] !== undefined) {
         return labels[options.labelName];
@@ -190,7 +188,6 @@ var DependencyPanel = function DependencyPanel(_ref) {
 
     // TODO add button or switch to set groupByLabelVariable
     var groupByLabel = options.groupByLabel;
-    console.log('new label: ' + groupByLabel);
     var srcName = getName(groupByLabel, true, sourcePodLabel);
     var dstName = getName(groupByLabel, false, destinationPodLabel);
 
@@ -47437,7 +47434,8 @@ var plugin = new _grafana_data__WEBPACK_IMPORTED_MODULE_0__.PanelPlugin(_Depende
   }).addTextInput({
     path: 'labelName',
     name: 'Label Name',
-    defaultValue: 'app'
+    defaultValue: 'app',
+    description: 'label name to group by'
   }).addRadio({
     path: 'color',
     name: 'Box Color',
