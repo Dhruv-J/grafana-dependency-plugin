@@ -106,6 +106,16 @@ installed panels will appear. For more information, visit the docs on [Grafana p
 
 ## Customization
 
+### 3. Customize the Panel Options
+
+Users can customize the panel by choosing to group the diagram based a chosen
+label. It is also possible to change the color of the pod squares in the
+diagram.
+
+<img src="https://user-images.githubusercontent.com/10016630/233191376-7cf471b8-5e3e-473a-8696-da25ab981066.png" width="400" alt="Panel Option Editor View">
+
+### 4. Further Customization
+
 This plugin is built with [@grafana/toolkit](https://www.npmjs.com/package/@grafana/toolkit),
 which is a CLI that enables efficient development of Grafana plugins. To customize
 the plugin and do local testings:

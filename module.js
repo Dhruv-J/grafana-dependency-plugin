@@ -181,6 +181,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
       }
       var labels = JSON.parse(labelJSON);
       if (labels[options.labelName] !== undefined) {
+        console.log('sending out label name: ' + labels[options.labelName]);
         return labels[options.labelName];
       }
       return sourcePodName;
