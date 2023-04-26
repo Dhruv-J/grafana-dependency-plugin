@@ -177,6 +177,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
     var octetDeltaCount = octetDeltaCounts === null || octetDeltaCounts === void 0 ? void 0 : octetDeltaCounts.values.get(i);
     function getName(groupByLabel, source, labelJSON) {
       if (!groupByLabel || labelJSON === undefined || options.labelName === undefined) {
+        console.log('fail point 1');
         return source ? sourcePodName : destinationPodName;
       }
       var labels = JSON.parse(labelJSON);
@@ -184,6 +185,7 @@ var DependencyPanel = function DependencyPanel(_ref) {
         console.log('sending out label name: ' + labels[options.labelName]);
         return labels[options.labelName];
       }
+      console.log('fail point 2');
       return sourcePodName;
     }
 
