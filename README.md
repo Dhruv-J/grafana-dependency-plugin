@@ -43,20 +43,18 @@ to return the following fields, in arbitrary order.
 
 - field 1: sourcePodName value with name or an alias of `sourcePodName`
 - field 2: sourcePodLabels value with name or alias of `sourcePodLabels`
-- field 3: sourcePodNamespace value with name or alias of `sourcePodNamespace`
-- field 4: sourceNodeName value with name or an alias of `sourceNodeName`
-- field 5: destinationPodName value with name or an alias of `destinationPodName`
-- field 6: destinationPodLabels value with name or an alias of `destinationPodLabels`
-- field 7: destinationNodeName value with name or an alias of `destinationNodeName`
-- field 8: destinationServicePortName value with name or an alias of `destinationServicePortName`
-- field 9: octetDeltaCount value with name or an alias of `octetDeltaCount`
+- field 3: sourceNodeName value with name or an alias of `sourceNodeName`
+- field 4: destinationPodName value with name or an alias of `destinationPodName`
+- field 5: destinationPodLabels value with name or an alias of `destinationPodLabels`
+- field 6: destinationNodeName value with name or an alias of `destinationNodeName`
+- field 7: destinationServicePortName value with name or an alias of `destinationServicePortName`
+- field 8: octetDeltaCount value with name or an alias of `octetDeltaCount`
 
 ClickHouse query example:
 
 ```sql
 SELECT sourcePodName,
 sourcePodLabels,
-sourcePodNamespace,
 sourceNodeName,
 destinationPodName,
 destinationPodLabels,
