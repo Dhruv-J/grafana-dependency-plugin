@@ -12,7 +12,7 @@ Hash: SHA512
   ],
   "plugin": "theia-grafana-dependency-plugin",
   "version": "1.0.0",
-  "time": 1695596081197,
+  "time": 1695596837931,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "vendors-node_modules_mermaid_dist_svgDraw-70101091_js.js": "4cb09ae06ff13e06294da12d019731845dfaddc9cb0426e26aee2da0dd68f276",
@@ -54,10 +54,10 @@ Hash: SHA512
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrgEARMKAAYFAmUQvjEAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm55kWAgkB4t4/I/fS1YvLg6X7C+cz6VrlOGiyRj4q7SydQmp/ERGKSXF0
-6iVTFAN1TdzxmqVeVqvJN6V6iY1VfiqE2V1Ry5QCCN/kFFGiCRrXiMYeOTAW
-f61PiFwAUhrh9gHD7NOtmaqPk4CHSzL18VesMUhSpynb6wVzWklx3maeSO37
-XE16F13e
-=9qI8
+wrgEARMKAAYFAmUQwSYAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5z8+AgkBQ8WduBj/SYTP9WkkTFrpqJqwJV+Fzw07VLzoN4IcwIzaMzUv
+jIS+9IkkJIXKQVBP7kY6VRCnU/hz4tEWhqWKzhACBjFnTMgFObhVI+D3Xyud
+icLElokQM5JI84hBQApxypuojqyq2OJIgLOE+ZCUj17pmI3KoS0RyX/uVdVx
+SQsWuz6Y
+=VtmU
 -----END PGP SIGNATURE-----
