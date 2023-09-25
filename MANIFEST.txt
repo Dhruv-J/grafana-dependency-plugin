@@ -12,7 +12,7 @@ Hash: SHA512
   ],
   "plugin": "theia-grafana-dependency-plugin",
   "version": "1.0.0",
-  "time": 1695629439883,
+  "time": 1695631086702,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "vendors-node_modules_mermaid_dist_svgDraw-70101091_js.js": "4cb09ae06ff13e06294da12d019731845dfaddc9cb0426e26aee2da0dd68f276",
@@ -33,7 +33,7 @@ Hash: SHA512
     "plugin.json": "6d4d80fcca8957c22b5568c35762b72a3c87574564caa4ef1aa8a422aa56e28d",
     "README.md": "96eff1bac3ea136b5312dc5df3d6d92fb9859d6abedd6bdb2198644bedade7cc",
     "node_modules_mermaid_dist_classDiagram-v2-802a48d3_js.js": "9956a14ea6436f3e3dc1b7cac76f47d9106d4c3a961a23a8982aa4738ccedc0a",
-    "module.js": "92b3c036fd0afcb6f8feda1c2c59b4da8dcbf3ee7f341ad66aa139fee61c9f70",
+    "module.js": "89ed1c5927c204b1c1c157e2133199b12333b2dda4570488ea1eae3e96c9cee3",
     "vendors-node_modules_dagre-d3-es_src_dagre_index_js.js": "085cea6ef1ae986a8b2476906dcb865bab8ea216b0edf888038c1c221598ee0f",
     "node_modules_mermaid_dist_flowDiagram-v2-58f49b84_js.js": "12dfbb0d67fe1838934cf07c8be9473a52a69a13c4f1f1c2ccbff24fa8ecad65",
     "vendors-node_modules_mermaid_dist_pieDiagram-3fca7ce7_js.js": "1b116507d2bef7ac1a77324d077bb00a6a379df89accac2178e10bd21238a790",
@@ -54,10 +54,10 @@ Hash: SHA512
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrgEARMKAAYFAmURQIAAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm58EkAgYilHnQZismBLCmdp1nhMpsjs9DDzeLn8e7IL5FN72pt4WFL3ht
-6J7R4p+ffOZtxRgxaEKuib/vzd0V4/sRpi97WgIJAVpp0CH+D5MgNAbC+/Bs
-nnVpAhJSXbqOsyq2sINKfrykEvtlNAbLh553RTNAyZwEdLDGNAGebuypsdIh
-TYY5Abvd
-=9LeB
+wrgEARMKAAYFAmURRu4AIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm56ynAgkBHnPbnhnloswOvtFen/JAG1651LwoIFDeTKw+186/uAxYbZo5
+bNcgkOpwSo/kPWlmoWrGD5cKxDiOKi/vhS4hntUCBjOYN5dBhCLW8VbIOx3T
+0xg3Uy+WzhP7dA7gcOE6/3Tzd2/KGtY6zFm0jtSqHqwXqxlBLEsfdQPkYElK
+L1Vp5ryN
+=baZE
 -----END PGP SIGNATURE-----
