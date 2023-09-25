@@ -12,7 +12,7 @@ Hash: SHA512
   ],
   "plugin": "theia-grafana-dependency-plugin",
   "version": "1.0.0",
-  "time": 1695596837931,
+  "time": 1695622728338,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "vendors-node_modules_mermaid_dist_svgDraw-70101091_js.js": "4cb09ae06ff13e06294da12d019731845dfaddc9cb0426e26aee2da0dd68f276",
@@ -30,10 +30,10 @@ Hash: SHA512
     "vendors-node_modules_mermaid_dist_stateDiagram-v2-96f2b9df_js.js": "c9bd6686a900747206d4363dde3c2b39ba696b24948340980b60f69ca4efc882",
     "vendors-node_modules_dagre-d3-es_src_dagre-js_label_add-html-label_js-node_modules_mermaid_di-3b7995.js": "f8c1063fa3c5ddac5cb13c6d8cb763b3d84400f20ea6910b0d4dbfeb32ccb93d",
     "vendors-node_modules_mermaid_dist_journeyDiagram-adaa34f8_js.js": "24d9b850f5bbb8142f6a037a25cfc5342647195ce678ab0edf1296a39fe56868",
-    "plugin.json": "c2f933a08279f631256c5c46241f9d2aefab260b3b881e5704c010ebd68c8774",
+    "plugin.json": "6d4d80fcca8957c22b5568c35762b72a3c87574564caa4ef1aa8a422aa56e28d",
     "README.md": "96eff1bac3ea136b5312dc5df3d6d92fb9859d6abedd6bdb2198644bedade7cc",
     "node_modules_mermaid_dist_classDiagram-v2-802a48d3_js.js": "9956a14ea6436f3e3dc1b7cac76f47d9106d4c3a961a23a8982aa4738ccedc0a",
-    "module.js": "114fbf1a9c432d0b0e2d759c602e45d8edd9af5ead289054d3e362f09a102c4a",
+    "module.js": "dc8999fe2ec3b84b826796a13ece657420d00cd96b6a150ab4af9bec57f98e64",
     "vendors-node_modules_dagre-d3-es_src_dagre_index_js.js": "085cea6ef1ae986a8b2476906dcb865bab8ea216b0edf888038c1c221598ee0f",
     "node_modules_mermaid_dist_flowDiagram-v2-58f49b84_js.js": "12dfbb0d67fe1838934cf07c8be9473a52a69a13c4f1f1c2ccbff24fa8ecad65",
     "vendors-node_modules_mermaid_dist_pieDiagram-3fca7ce7_js.js": "1b116507d2bef7ac1a77324d077bb00a6a379df89accac2178e10bd21238a790",
@@ -54,10 +54,10 @@ Hash: SHA512
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrgEARMKAAYFAmUQwSYAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm5z8+AgkBQ8WduBj/SYTP9WkkTFrpqJqwJV+Fzw07VLzoN4IcwIzaMzUv
-jIS+9IkkJIXKQVBP7kY6VRCnU/hz4tEWhqWKzhACBjFnTMgFObhVI+D3Xyud
-icLElokQM5JI84hBQApxypuojqyq2OJIgLOE+ZCUj17pmI3KoS0RyX/uVdVx
-SQsWuz6Y
-=VtmU
+wrkEARMKAAYFAmURJkgAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5zGWAgkBpz6Mob3Ox6JO7Veexq0TbwNkMty0VCOhWnmvTmS8zOoFOsKh
+TaaBRcpIPaaZ3NUDmyvECp3/ZempcdbzucGDYxoCCQEoL8+8IqOPRH1Vn0G/
+A9we3n50wiVJuP0+MArg1jLHUaW0ctpcgAtMVDZsLGPt+LIF8eGP6WFV9Pax
+cmBHxL1PFg==
+=Gm0x
 -----END PGP SIGNATURE-----
